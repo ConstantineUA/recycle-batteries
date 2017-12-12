@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<style>
+table, th, td {
+   border: 1px solid black;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to Recycle batteries application</h1>
+
+<p>
+    Click <a href="{{ path('app_battery_log_add') }}">here</a> to add new batteries to the box
+</p>
+
+{% if records %}
+<h2>Statistics:</h2>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Battery type</th>
+            <th>Total count</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td class="data-type">{{ record.type }}</td>
+            <td class="data-count">{{ record.total }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>
+    The box is empty
+</p>
+{% endif %}
+
+{% endblock %}
