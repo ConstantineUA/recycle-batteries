@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BatteryLogRepository")
  * @ORM\HasLifecycleCallbacks
+ * @ORM\Table(indexes={@ORM\Index(name="type_idx", columns={"type"})})
  */
 class BatteryLog
 {
@@ -52,6 +53,8 @@ class BatteryLog
     protected $addedAt;
 
     /**
+     * Get ID
+     *
      * @return number
      */
     public function getId()
@@ -60,6 +63,8 @@ class BatteryLog
     }
 
     /**
+     * Get type
+     *
      * @return string
      */
     public function getType()
@@ -68,6 +73,8 @@ class BatteryLog
     }
 
     /**
+     * Get name
+     *
      * @return string
      */
     public function getName()
@@ -76,6 +83,8 @@ class BatteryLog
     }
 
     /**
+     * Get addedAt date
+     *
      * @return \DateTime
      */
     public function getAddedAt()
@@ -84,6 +93,8 @@ class BatteryLog
     }
 
     /**
+     * Set type
+     *
      * @param string $type
      */
     public function setType($type)
@@ -92,6 +103,8 @@ class BatteryLog
     }
 
     /**
+     * Set name
+     *
      * @param string $name
      */
     public function setName($name)
@@ -100,6 +113,8 @@ class BatteryLog
     }
 
     /**
+     * Set addedAt date
+     *
      * @param \DateTime $addedAt
      */
     public function setAddedAt($addedAt)
@@ -108,6 +123,8 @@ class BatteryLog
     }
 
     /**
+     * PrePersist callback, set addedAt
+     *
      * @ORM\PrePersist
      */
     public function onAddNewLog()
@@ -116,6 +133,8 @@ class BatteryLog
     }
 
     /**
+     * Get count
+     *
      * @return number
      */
     public function getCount()
@@ -124,6 +143,8 @@ class BatteryLog
     }
 
     /**
+     * Set count
+     *
      * @param number $count
      */
     public function setCount($count)
